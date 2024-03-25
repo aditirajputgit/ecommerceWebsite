@@ -150,9 +150,6 @@ export default class Home01 extends Component<Props,S>{
             </Grid>
           </Box>
         </HomeMoreClothes>
-        <Box>
-          {this.state.trendingData[1].imgSrc}
-        </Box>
         <TrendingSection>
           <Box className="trendingHeading">
             <Typography variant="h3">Trending</Typography>

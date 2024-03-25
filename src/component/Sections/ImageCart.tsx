@@ -46,7 +46,7 @@ class ImageCart extends Component<Props, S> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <Box className={isHovered ? "box hovered" : "box"}>
+        <Box className={isHovered ? "box hovered" : "box"} style={{backgroundImage:`url('${this.props.item.imgSrc}')`}}>
           {isHovered && (
             <HoverText>
               <Box
