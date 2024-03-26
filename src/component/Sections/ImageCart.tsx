@@ -30,6 +30,10 @@ class ImageCart extends Component<Props, S> {
     };
   }
 
+  onClickQuickShop = () => {
+    console.log("added");
+  };
+
   handleMouseEnter = () => {
     this.setState({ isHovered: true });
   };
@@ -46,7 +50,10 @@ class ImageCart extends Component<Props, S> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <Box className={isHovered ? "box hovered" : "box"} style={{backgroundImage:`url('${this.props.item.imgSrc}')`}}>
+        <Box
+          className={isHovered ? "box hovered" : "box"}
+          style={{ backgroundImage: `url('${this.props.item.imgSrc}')` }}
+        >
           {isHovered && (
             <HoverText>
               <Box
@@ -63,7 +70,13 @@ class ImageCart extends Component<Props, S> {
                   Quick View
                 </Button>
                 <br />
-                <Button variant="contained" className="hoverButton">
+                <Button
+                  variant="contained"
+                  className="hoverButton"
+                  onClick={() => {
+                    this.onClickQuickShop();
+                  }}
+                >
                   Quick Shop
                 </Button>
               </Box>

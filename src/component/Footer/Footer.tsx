@@ -1,5 +1,12 @@
-import { Box, Button, Grid, OutlinedInput, Typography, styled } from '@material-ui/core'
-import React, { Component } from 'react'
+import {
+  Box,
+  Button,
+  Grid,
+  OutlinedInput,
+  Typography,
+  styled,
+} from "@material-ui/core";
+import React, { Component } from "react";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import CallIcon from "@material-ui/icons/Call";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,30 +18,29 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import PersonIcon from "@material-ui/icons/Person";
 
-
-const data = {
-  title: "FAQ (How it works)",
-  rows: [
-    {
-      title: "Lorem ipsum dolor sit amet,",
-      content: "Lorem ipsum dolor sit amet, consectetur ",
-    },
-    {
-      title: "Nunc maximus, magna at ultricies elementum",
-      content:
-        "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam.",
-    },
-    {
-      title: "Curabitur laoreet, mauris vel blandit fringilla",
-      content:
-        "Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc",
-    },
-    {
-      title: "What is the package version",
-      content: "v1.0.5",
-    },
-  ],
-};
+// const data = {
+//   title: "FAQ (How it works)",
+//   rows: [
+//     {
+//       title: "Lorem ipsum dolor sit amet,",
+//       content: "Lorem ipsum dolor sit amet, consectetur ",
+//     },
+//     {
+//       title: "Nunc maximus, magna at ultricies elementum",
+//       content:
+//         "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam.",
+//     },
+//     {
+//       title: "Curabitur laoreet, mauris vel blandit fringilla",
+//       content:
+//         "Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc",
+//     },
+//     {
+//       title: "What is the package version",
+//       content: "v1.0.5",
+//     },
+//   ],
+// };
 
 export default class Footer extends Component {
   render() {
@@ -207,7 +213,6 @@ export default class Footer extends Component {
               <Typography>Search</Typography>
             </Box>
           </Box>
-          
         </FooterReserved>
       </>
     );
@@ -216,25 +221,25 @@ export default class Footer extends Component {
 
 const FooterStyle = styled(Box)({
   backgroundColor: "#f6f6f8",
-  padding:'2rem',
-  "& .footerConatiner":{
-    display:'flex',
-    color:"grey"
+  marginTop: "40px",
+  padding: "2rem",
+  "& .footerConatiner": {
+    display: "flex",
+    color: "grey",
   },
-  "& .addressStyle":{
-    display:"flex",
-    color:'grey',
-    marginTop:"20px"
+  "& .addressStyle": {
+    display: "flex",
+    color: "grey",
+    marginTop: "20px",
   },
-  "& .searchingnewsLetters":{
-    border:"1px solid black",
- 
+  "& .searchingnewsLetters": {
+    border: "1px solid black",
   },
-  "& .searchingnewsLetter":{
-    height:'45px',
-    position:"relative",
-    border:"none",
-  }
+  "& .searchingnewsLetter": {
+    height: "45px",
+    position: "relative",
+    border: "none",
+  },
 });
 
 const FooterReserved = styled(Box)({
