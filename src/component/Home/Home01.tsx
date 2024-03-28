@@ -4,22 +4,23 @@ import Slider from "react-slick";
 import ImageCart from "../Sections/ImageCart";
 import TredingArrayData from "../../Data/treding";
 
-interface SingleTrendingData {
-  name: string;
-  price: number;
-  description: string;
-  sizes: Array<string>;
-  availability: boolean;
-  categories: Array<string>;
-  tags: Array<string>;
-  imgSrc: string;
-  id: number;
-  inCart: boolean;
+interface RatingType {
+  rate: number;
   count: number;
 }
 
+interface CollectionSingleData {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: RatingType;
+}
+
 interface S {
-  trendingData: Array<SingleTrendingData>;
+  trendingData: Array<CollectionSingleData>;
 }
 
 interface Props {}

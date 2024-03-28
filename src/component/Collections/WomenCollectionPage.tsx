@@ -18,37 +18,33 @@ interface CollectionSingleData {
   rating: RatingType;
 }
 interface States {
-  shoppingData: any;
+  shoppingData: Array<CollectionSingleData>;
 }
 type Props = {};
 export default class WomenCollectionPage extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      shoppingData: null,
+      shoppingData: [],
     };
   }
   componentDidMount(): void {
     this.setState({ shoppingData: CollectionOfData });
   }
-  handleCategory=(key:string)=>{
-    let newShoppingData=this.state.shoppingData.filter((item:any)=>{
-      return item.gender===key
-    })
-    this.setState({shoppingData:newShoppingData})
-  }
+  handleCategory = (key: string) => {
+    let newShoppingData = this.state.shoppingData.filter((item: any) => {
+      return item.gender === key;
+    });
+    this.setState({ shoppingData: newShoppingData });
+  };
   render() {
     return (
       <>
         <WomenCollection>
           <Box className="womenBanner">
-            {this.state.shoppingData.map((item:any) => {
+            {this.state.shoppingData.map((item: any) => {
               if (item.category === "women's clothing") {
-                return (
-                  <>
-                    <ImageCart items={item} />
-                  </>
-                );
+                return <>{/* <ImageCart items={item} /> */}</>;
               }
             })}
             <Typography variant="h3"> Women</Typography>

@@ -2,16 +2,19 @@ import { Box, Button, Typography, styled } from "@material-ui/core";
 import React, { Component } from "react";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
-interface SingleTrendingData {
-  name: string;
+interface RatingType {
+  rate: number;
+  count: number;
+}
+
+interface CollectionSingleData {
+  id: number;
+  title: string;
   price: number;
   description: string;
-  sizes: Array<string>;
-  availability: boolean;
-  categories: Array<string>;
-  tags: Array<string>;
-  imgSrc: string;
-  id: number;
+  category: string;
+  image: string;
+  rating: RatingType;
 }
 
 interface S {
@@ -19,7 +22,7 @@ interface S {
 }
 
 interface Props {
-  item: SingleTrendingData;
+  item: CollectionSingleData;
 }
 
 class ImageCart extends Component<Props, S> {
@@ -52,7 +55,7 @@ class ImageCart extends Component<Props, S> {
       >
         <Box
           className={isHovered ? "box hovered" : "box"}
-          style={{ backgroundImage: `url('${this.props.item.imgSrc}')` }}
+          style={{ backgroundImage: `url('${this.props.item.image}')` }}
         >
           {isHovered && (
             <HoverText>
@@ -84,7 +87,7 @@ class ImageCart extends Component<Props, S> {
           )}
         </Box>
         <Box>
-          <Typography>{this.props.item.name}</Typography>
+          <Typography>{this.props.item.title}</Typography>
           <Typography>Rs.{this.props.item.price}</Typography>
         </Box>
       </SingleImageCart>
@@ -102,7 +105,7 @@ const SingleImageCart = styled(Box)({
     height: "90%",
     cursor: "pointer",
     color: "white",
-    backgroundImage: (props: Props) => `url('${props.item.imgSrc}')`,
+    backgroundImage: (props: Props) => `url('${props.item.image}')`,
   },
   "& .box:hover": {
     transform: "scale(.9)",
@@ -136,6 +139,7 @@ const HoverText = styled(Box)({
   "& .hoverWishlist": {
     marginLeft: "10px",
     marginTop: "15px",
+    color: "brown",
   },
   "& .hoverWishlist:hover": {
     transform: "scale(1.05)",

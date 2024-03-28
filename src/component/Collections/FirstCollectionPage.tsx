@@ -1,8 +1,23 @@
-import { Box, Button, Grid, styled, Typography } from "@material-ui/core";
 import React, { Component } from "react";
+import { Box, Button, Grid, styled, Typography } from "@material-ui/core";
 import { CollectionOfSingle } from "../../Data/collection";
-import WomenCollection from "../../Pages/WomenCollection";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
+interface RatingType {
+  rate: number;
+  count: number;
+}
+
+interface CollectionSingleData {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: RatingType;
+}
+
 interface singleItem {
   id: number;
   imgsrc: string;
@@ -10,15 +25,11 @@ interface singleItem {
   buttonName: string;
 }
 
-export default class FirstCollectionPage extends Component {
-  onClickCollectionButton = (category: string) => {
-    if (category === "women's clothing") {
-      // console.log(category)
-      <WomenCollection />;
-    }
-  };
-
+export default class FirstCollectionPage extends Component<{}, {}> {
   onHandlingSingleCart = (items: singleItem) => {
+    const { Category, buttonName } = items;
+    const { category } = useParams<{ category: string }>();
+
     return (
       <>
         <SingleCartCollection>
@@ -30,24 +41,22 @@ export default class FirstCollectionPage extends Component {
                 height: "100%",
               }}
             >
-              <Link to={`/collection/${items.buttonName.toLowerCase()}`}>
+              <Link to={`/collection/${Category}`}>
                 <Button
                   className="buttonCart"
                   variant="contained"
-                  onClick={() => {
-                    this.onClickCollectionButton(items.Category);
-                  }}
+                  onClick={() => console.log(category)}
                 >
-                  {items.buttonName}
+                  {buttonName}
                 </Button>
               </Link>
             </Box>
-            {/* <img src={items.imgsrc} className="imgCollection" /> */}
           </Box>
         </SingleCartCollection>
       </>
     );
   };
+
   render() {
     return (
       <>
@@ -59,11 +68,9 @@ export default class FirstCollectionPage extends Component {
             <Grid container spacing={4}>
               {CollectionOfSingle.map((items) => {
                 return (
-                  <>
-                    <Grid item xs={6} sm={6} md={4} lg={4}>
-                      {this.onHandlingSingleCart(items)}
-                    </Grid>
-                  </>
+                  <Grid item xs={6} sm={6} md={4} lg={4} key={items.id}>
+                    {this.onHandlingSingleCart(items)}
+                  </Grid>
                 );
               })}
             </Grid>
